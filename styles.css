@@ -1,0 +1,484 @@
+:root {
+  --paper: #f3eee6;
+  --paper-deep: #e7dfd2;
+  --card: #fffcf8;
+  --ink: #241c16;
+  --muted: #5c5348;
+  --line: rgba(36, 28, 22, 0.14);
+  --clay: #9c3d2e;
+  --leaf: #24382d;
+  --leaf-hover: #1a2920;
+  --serif: "Fraunces", "Iowan Old Style", Palatino, "Palatino Linotype", serif;
+  --sans: "Outfit", "Segoe UI", sans-serif;
+  --shadow: 0 22px 50px rgba(36, 28, 22, 0.08);
+  --space: clamp(1.25rem, 3vw, 2rem);
+  --measure: 38rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(780px 380px at 100% -8%, rgba(166, 124, 62, 0.18), transparent 62%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  padding-bottom: 5.5rem;
+}
+
+body::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background: var(--clay);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 0.9rem;
+  z-index: 5;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+.site-header,
+.hero,
+.invite,
+.about,
+.steps,
+.site-footer {
+  width: min(1080px, calc(100% - 2.4rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0 0.5rem;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.wordmark-small {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wordmark-name {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 460;
+  font-style: italic;
+}
+
+.header-link {
+  font-size: 0.95rem;
+  text-underline-offset: 0.22em;
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+h1,
+h2,
+.date-day {
+  font-family: var(--serif);
+  font-weight: 460;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 7vw, 4.7rem);
+  line-height: 1.02;
+  max-width: 11ch;
+}
+
+h2 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.hero {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+  padding: 2.2rem 0 1rem;
+}
+
+.lede {
+  max-width: var(--measure);
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+.themes {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.15rem;
+  border: 1px solid var(--leaf);
+  border-radius: 999px;
+  background: var(--leaf);
+  color: #f6f1e8;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--leaf-hover);
+}
+
+.button:focus-visible,
+.header-link:focus-visible,
+.site-footer a:focus-visible,
+.dock a:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+}
+
+.button-quiet {
+  background: transparent;
+  color: var(--leaf);
+}
+
+.button-quiet:hover {
+  background: rgba(36, 56, 45, 0.06);
+}
+
+.frame-inner {
+  display: grid;
+  place-items: center;
+  min-height: 16rem;
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(160deg, rgba(255, 252, 248, 0.3), rgba(36, 28, 22, 0.05)),
+    repeating-linear-gradient(
+      -18deg,
+      var(--paper-deep),
+      var(--paper-deep) 12px,
+      #efe6d8 12px,
+      #efe6d8 24px
+    );
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.hero-frame {
+  display: none;
+}
+
+.invite-actions .button {
+  width: 100%;
+}
+
+.invite {
+  margin-top: 2.5rem;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.6rem;
+  box-shadow: var(--shadow);
+}
+
+.invite-layout {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.date-stamp {
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.date-day {
+  margin: 0;
+  font-size: clamp(4.2rem, 12vw, 6.4rem);
+  line-height: 0.85;
+  color: var(--clay);
+}
+
+.date-month,
+.date-year {
+  margin: 0;
+}
+
+.date-month {
+  margin-top: 0.35rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+}
+
+.date-year,
+.when,
+.conditions,
+.phrase figcaption,
+.place {
+  color: var(--muted);
+}
+
+.when {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.place,
+.conditions {
+  font-size: 0.98rem;
+}
+
+.phrase {
+  margin: 0.4rem 0 1.1rem;
+  padding: 0.9rem 1rem;
+  background: var(--paper);
+  border-radius: 0.9rem;
+}
+
+.phrase figcaption {
+  margin-bottom: 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.phrase blockquote {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.invite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.live {
+  min-height: 1.4rem;
+  margin: 0.8rem 0 0;
+  font-size: 0.95rem;
+}
+
+.about {
+  display: grid;
+  gap: 1.6rem;
+  padding: 4rem 0 1rem;
+}
+
+.portrait .frame-inner {
+  min-height: 18rem;
+  aspect-ratio: 4 / 5;
+}
+
+.steps {
+  padding: 2.5rem 0 1rem;
+}
+
+.steps ol {
+  display: grid;
+  gap: 1rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  padding: 1.15rem 1.15rem 0.4rem;
+  background: rgba(255, 252, 248, 0.55);
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+}
+
+.step-index {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--clay);
+  line-height: 1;
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
+  align-items: end;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding: 1.6rem 0 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer .wordmark-name {
+  color: var(--ink);
+}
+
+.dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+  background: rgba(243, 238, 230, 0.92);
+  border-top: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+.dock a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(28rem, 100%);
+  min-height: 3rem;
+  border-radius: 999px;
+  background: var(--leaf);
+  color: #f6f1e8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 799px) {
+  .hero {
+    padding-top: 1.2rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .date-day {
+    font-size: 3.4rem;
+  }
+
+  .themes {
+    margin-bottom: 0.55rem;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    padding-bottom: 0;
+  }
+
+  .hero {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    padding-top: 3.5rem;
+  }
+
+  .invite-layout {
+    grid-template-columns: 11rem 1fr;
+    gap: 2.4rem;
+    align-items: start;
+  }
+
+  .date-stamp {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .hero-frame {
+    display: block;
+  }
+
+  .hero-frame .frame-inner {
+    min-height: 22rem;
+  }
+
+  .invite-actions .button {
+    width: auto;
+  }
+
+  .about {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    padding-top: 5rem;
+  }
+
+  .steps ol {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dock {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
