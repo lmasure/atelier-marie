@@ -24,17 +24,22 @@
     <a class="skip" href="#contenu">Aller au contenu</a>
 
     <header class="site-header">
-      <a class="wordmark" href="#contenu">
+      <a class="wordmark" href="index.html">
         <span class="wordmark-small">Les ateliers</span>
         <span class="wordmark-name">de Marie</span>
       </a>
+      <nav class="site-nav" aria-label="Pages">
+        <a href="index.html" aria-current="page">Accueil</a>
+        <a href="#prochains">Prochains</a>
+        <a href="anciens.html">Anciens ateliers</a>
+      </nav>
       <a
         class="header-link"
         href="https://www.instagram.com/les_ateliers_demarie/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        @les_ateliers_demarie
+        Instagram
       </a>
     </header>
 
@@ -71,10 +76,15 @@
       </section>
 
       <!--
-        CAMPAGNE — bloc à modifier avant chaque atelier :
-        titre, date, horaire, texte, phrase à copier.
+        PROCHAINS — le grand bloc est l’atelier le plus proche.
+        Les cartes qui suivent sont les dates d’après, à remplacer.
         Le lieu exact reste hors de la page : il part avec la confirmation.
       -->
+      <section class="prochains" id="prochains" aria-labelledby="prochains-title">
+        <div class="section-heading">
+          <p class="eyebrow">À venir</p>
+          <h2 id="prochains-title">Les prochains ateliers</h2>
+        </div>
       <section class="invite" id="prochain-atelier" aria-labelledby="invite-title">
         <p class="eyebrow">Le prochain atelier</p>
         <div class="invite-layout">
@@ -122,6 +132,28 @@
             <p class="live" data-live role="status"></p>
           </div>
         </div>
+      </section>
+
+        <p class="also-title">Les dates d’après</p>
+        <div class="upcoming-list">
+          <article class="upcoming-card">
+            <p class="upcoming-date">Samedi 6 décembre 2026</p>
+            <h3>Reprendre sa place</h3>
+            <p>Un temps pour se remettre au centre, sans se presser. Le détail sera écrit par Marie.</p>
+            <p class="conditions">10&nbsp;h – 12&nbsp;h&nbsp;30 · inscription par message, paiement sur place.</p>
+            <a class="button button-quiet" href="https://ig.me/m/les_ateliers_demarie" target="_blank" rel="noopener noreferrer">Écrire à Marie</a>
+          </article>
+          <article class="upcoming-card">
+            <p class="upcoming-date">Samedi 16 janvier 2027</p>
+            <h3>Un pas de côté</h3>
+            <p>Une matinée pour déposer le rythme habituel et repartir un peu plus léger. Texte d’exemple.</p>
+            <p class="conditions">10&nbsp;h – 12&nbsp;h&nbsp;30 · inscription par message, paiement sur place.</p>
+            <a class="button button-quiet" href="https://ig.me/m/les_ateliers_demarie" target="_blank" rel="noopener noreferrer">Écrire à Marie</a>
+          </article>
+        </div>
+        <p class="to-archive">
+          <a href="anciens.html">Voir les anciens ateliers</a>
+        </p>
       </section>
 
       <section class="about" aria-labelledby="about-title">
