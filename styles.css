@@ -1,16 +1,20 @@
 :root {
-  --paper: #f3eee6;
-  --paper-deep: #e7dfd2;
-  --card: #fffcf8;
-  --ink: #241c16;
-  --muted: #5c5348;
-  --line: rgba(36, 28, 22, 0.14);
-  --clay: #9c3d2e;
-  --leaf: #24382d;
-  --leaf-hover: #1a2920;
+  --paper: #fbf6ee;
+  --paper-deep: #f4e6d4;
+  --card: #fffdf9;
+  --ink: #1a140e;
+  --muted: #65584e;
+  --line: rgba(26, 20, 14, 0.12);
+  --coral: #f86c75;
+  --coral-ink: #d24b58;
+  --gold: #f4a805;
+  --teal: #187c7c;
+  --teal-deep: #126464;
+  --lavender: #c4aee0;
+  --sage: #6b9464;
   --serif: "Fraunces", "Iowan Old Style", Palatino, "Palatino Linotype", serif;
   --sans: "Outfit", "Segoe UI", sans-serif;
-  --shadow: 0 22px 50px rgba(36, 28, 22, 0.08);
+  --shadow: 0 22px 50px rgba(26, 20, 14, 0.08);
   --space: clamp(1.25rem, 3vw, 2rem);
   --measure: 38rem;
 }
@@ -28,7 +32,8 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(780px 380px at 100% -8%, rgba(166, 124, 62, 0.18), transparent 62%),
+    radial-gradient(720px 360px at 100% -6%, rgba(244, 168, 5, 0.2), transparent 60%),
+    radial-gradient(520px 300px at -10% 12%, rgba(248, 108, 117, 0.16), transparent 64%),
     var(--paper);
   color: var(--ink);
   font-family: var(--sans);
@@ -40,8 +45,15 @@ body {
 body::before {
   content: "";
   display: block;
-  height: 6px;
-  background: var(--clay);
+  height: 8px;
+  background: linear-gradient(
+    90deg,
+    var(--coral) 0 22%,
+    var(--gold) 22% 42%,
+    var(--teal) 42% 64%,
+    var(--lavender) 64% 84%,
+    var(--sage) 84% 100%
+  );
 }
 
 img {
@@ -84,25 +96,23 @@ a {
   padding: 1.25rem 0 0.5rem;
 }
 
-.wordmark {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  line-height: 1;
+.brand {
+  display: block;
+  line-height: 0;
+  border-radius: 50%;
 }
 
-.wordmark-small {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
+.logo {
+  display: block;
+  width: 4.75rem;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.wordmark-name {
-  font-family: var(--serif);
-  font-size: 1.55rem;
-  font-weight: 460;
-  font-style: italic;
+.logo-footer {
+  width: 3.4rem;
 }
 
 .header-link {
@@ -116,7 +126,7 @@ a {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--teal);
 }
 
 h1,
@@ -177,10 +187,10 @@ p {
   gap: 0.55rem;
   min-height: 3rem;
   padding: 0.75rem 1.15rem;
-  border: 1px solid var(--leaf);
+  border: 1px solid var(--teal);
   border-radius: 999px;
-  background: var(--leaf);
-  color: #f6f1e8;
+  background: var(--teal);
+  color: #fffdf9;
   font: inherit;
   font-weight: 600;
   text-decoration: none;
@@ -188,24 +198,25 @@ p {
 }
 
 .button:hover {
-  background: var(--leaf-hover);
+  background: var(--teal-deep);
 }
 
+.brand:focus-visible,
 .button:focus-visible,
 .header-link:focus-visible,
 .site-footer a:focus-visible,
 .dock a:focus-visible {
-  outline: 2px solid var(--clay);
+  outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
 
 .button-quiet {
   background: transparent;
-  color: var(--leaf);
+  color: var(--teal);
 }
 
 .button-quiet:hover {
-  background: rgba(36, 56, 45, 0.06);
+  background: rgba(24, 124, 124, 0.08);
 }
 
 .frame-inner {
@@ -214,13 +225,11 @@ p {
   min-height: 16rem;
   border-radius: 1.4rem;
   background:
-    linear-gradient(160deg, rgba(255, 252, 248, 0.3), rgba(36, 28, 22, 0.05)),
+    linear-gradient(160deg, rgba(255, 253, 249, 0.4), rgba(26, 20, 14, 0.04)),
     repeating-linear-gradient(
       -18deg,
-      var(--paper-deep),
-      var(--paper-deep) 12px,
-      #efe6d8 12px,
-      #efe6d8 24px
+      #f8e4dc 0 12px,
+      var(--paper) 12px 24px
     );
   color: var(--muted);
   letter-spacing: 0.14em;
@@ -260,7 +269,7 @@ p {
   margin: 0;
   font-size: clamp(4.2rem, 12vw, 6.4rem);
   line-height: 0.85;
-  color: var(--clay);
+  color: var(--coral-ink);
 }
 
 .date-month,
@@ -295,8 +304,9 @@ p {
 
 .phrase {
   margin: 0.4rem 0 1.1rem;
-  padding: 0.9rem 1rem;
+  padding: 0.9rem 1rem 0.9rem 1.05rem;
   background: var(--paper);
+  border-left: 4px solid var(--gold);
   border-radius: 0.9rem;
 }
 
@@ -362,7 +372,7 @@ p {
   margin-bottom: 0.45rem;
   font-family: var(--serif);
   font-size: 1.6rem;
-  color: var(--clay);
+  color: var(--coral-ink);
   line-height: 1;
 }
 
@@ -370,7 +380,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem 1.5rem;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
   margin-top: 3rem;
   padding: 1.6rem 0 2rem;
@@ -382,10 +392,6 @@ p {
   margin: 0;
 }
 
-.site-footer .wordmark-name {
-  color: var(--ink);
-}
-
 .dock {
   position: fixed;
   left: 0;
@@ -394,7 +400,7 @@ p {
   display: flex;
   justify-content: center;
   padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
-  background: rgba(243, 238, 230, 0.92);
+  background: rgba(251, 246, 238, 0.92);
   border-top: 1px solid var(--line);
   backdrop-filter: blur(10px);
 }
@@ -406,8 +412,8 @@ p {
   width: min(28rem, 100%);
   min-height: 3rem;
   border-radius: 999px;
-  background: var(--leaf);
-  color: #f6f1e8;
+  background: var(--teal);
+  color: #fffdf9;
   font-weight: 600;
   text-decoration: none;
 }
@@ -416,6 +422,10 @@ p {
   .hero {
     padding-top: 1.2rem;
     padding-bottom: 0.25rem;
+  }
+
+  .logo:not(.logo-footer) {
+    width: 4rem;
   }
 
   .date-day {
